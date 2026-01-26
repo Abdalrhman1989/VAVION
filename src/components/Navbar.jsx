@@ -39,7 +39,11 @@ const Navbar = () => {
     <nav style={navbarStyle}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src="/vavion-logo.png" alt="Vavion Creative" style={{ height: '45px', width: 'auto' }} />
+          <img
+            src={theme === 'dark' ? "/logo-dark.png" : "/vavion-logo.png"}
+            alt="Vavion Creative"
+            style={{ height: '45px', width: 'auto' }}
+          />
         </a>
 
         {/* Desktop Nav */}

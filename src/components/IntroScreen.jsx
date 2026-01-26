@@ -48,7 +48,7 @@ const IntroScreen = ({ onComplete }) => {
                 }} />
 
                 <img
-                    src="/vavion-logo.png"
+                    src="/logo-dark.png"
                     alt="Vavion Creative"
                     style={{
                         height: '100px',
