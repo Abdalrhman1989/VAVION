@@ -25,10 +25,35 @@ const Booking = () => {
         { value: 'production', label: language === 'ar' ? 'الإنتاج الإعلامي' : 'Media Production' },
     ];
 
-    const handleSubmit = (e) => {
+    const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Booking submitted:', formData);
-        alert(language === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Request submitted successfully!');
+        setStatus('loading');
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                alert(language === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Request submitted successfully!');
+                setFormData({ name: '', email: '', phone: '', service: '', date: '', message: '' }); // Reset form
+            } else {
+                throw new Error('Failed to send');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setStatus('error');
+            alert(language === 'ar' ? 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.' : 'Error sending request. Please try again.');
+        } finally {
+            setStatus('idle');
+        }
     };
 
     return (
@@ -280,9 +305,12 @@ const Booking = () => {
                                 />
                             </div>
 
-                            <Button type="submit" style={{ width: '100%', padding: '18px', fontSize: '1.1rem' }}>
-                                {language === 'ar' ? 'إرسال الطلب' : 'Submit Request'}
-                                <Send size={20} style={{ marginLeft: isRTL ? 0 : '0.5rem', marginRight: isRTL ? '0.5rem' : 0, transform: isRTL ? 'rotate(180deg)' : 'none' }} />
+                            <Button type="submit" style={{ width: '100%', padding: '18px', fontSize: '1.1rem', opacity: status === 'loading' ? 0.7 : 1 }} disabled={status === 'loading'}>
+                                {status === 'loading'
+                                    ? (language === 'ar' ? 'جاري الإرسال...' : 'Sending...')
+                                    : (language === 'ar' ? 'إرسال الطلب' : 'Submit Request')
+                                }
+                                {status !== 'loading' && <Send size={20} style={{ marginLeft: isRTL ? 0 : '0.5rem', marginRight: isRTL ? '0.5rem' : 0, transform: isRTL ? 'rotate(180deg)' : 'none' }} />}
                             </Button>
                         </form>
                     </div>
