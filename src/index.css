@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+
+:root {
+  /* Brand Colors - Constant */
+  --color-primary: #E95C27;
+
+  /* Fonts */
+  --font-main: 'Cairo', sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+
+  /* Theme: Dark (Default) */
+  --bg-body: #000000;
+  --bg-card: #111111;
+  --bg-card-hover: #1a1a1a;
+  --bg-secondary: #050505;
+  --text-main: #FFFFFF;
+  --text-muted: #CCCCCC;
+  --border-color: #222222;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+  /* Theme: Light */
+  --bg-body: #FFFFFF;
+  --bg-card: #F8F9FA;
+  --bg-card-hover: #F1F3F5;
+  --bg-secondary: #F3F4F6;
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+  --border-color: #E5E7EB;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff753e;
+}
+
+/* Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  /* Always white text on primary button */
+  font-weight: 700;
+  border-radius: 4px;
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--text-main);
+  padding: 12px 24px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-outline:hover {
+  background-color: var(--text-main);
+  color: var(--bg-body);
+  border-color: var(--text-main);
+}
+
+/* Missing Utility Classes (Tailwind-like) */
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.w-full {
+  width: 100% !important;
+}
+
+.fixed {
+  position: fixed !important;
+}
+
+.z-50 {
+  z-index: 50 !important;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+/* Tablet/Desktop overrides */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
+
+  .md\:hidden {
+    display: none !important;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(233, 92, 39, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px rgba(233, 92, 39, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(233, 92, 39, 0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* PDF Visual Elements */
+.bg-grid {
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.arc-shape {
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #ff8a5b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
