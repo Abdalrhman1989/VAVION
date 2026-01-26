@@ -53,6 +53,15 @@ export const translations = {
         testimonials: 'Testimonials',
         ctaTitle: 'Ready to Start Your Project?',
         ctaButton: 'Let\'s Talk',
+        discovery: 'Discovery',
+        discoveryDesc: 'We start by understanding your brand, goals, and target audience.',
+        strategy: 'Strategy',
+        strategyDesc: 'We develop a comprehensive roadmap tailored to your specific needs.',
+        execution: 'Execution',
+        executionDesc: 'Our creative team brings the vision to life with precision and flair.',
+        delivery: 'Delivery',
+        deliveryDesc: 'We deliver the final assets and ensure everything runs smoothly.',
+        jeddahMadinah: 'Jeddah & Madinah, Saudi Arabia'
     },
     ar: {
         home: 'الرئيسية',
@@ -104,6 +113,15 @@ export const translations = {
         testimonials: 'آراء العملاء',
         ctaTitle: 'جاهز لبدء مشروعك؟',
         ctaButton: 'تحدث معنا',
+        discovery: 'الاكتشاف',
+        discoveryDesc: 'نبدأ بفهم علامتك التجارية وأهدافك وجمهورك المستهدف.',
+        strategy: 'الاستراتيجية',
+        strategyDesc: 'نقوم بتطوير خارطة طريق شاملة مصممة خصيصاً لاحتياجاتك.',
+        execution: 'التنفيذ',
+        executionDesc: 'فريقنا الإبداعي يحول الرؤية إلى واقع بدقة وإتقان.',
+        delivery: 'التسليم',
+        deliveryDesc: 'نسلمك الأصول النهائية ونضمن سير العمل بسلاسة.',
+        jeddahMadinah: 'جدة والمدينة المنورة، المملكة العربية السعودية'
     }
 };
 

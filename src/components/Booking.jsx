@@ -138,7 +138,7 @@ const Booking = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Visit Us</h4>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>Riyadh, Saudi Arabia</p>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>{t('jeddahMadinah')}</p>
                                     </div>
                                 </div>
                             </div>

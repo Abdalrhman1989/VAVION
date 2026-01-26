@@ -8,23 +8,23 @@ const Process = () => {
     const steps = [
         {
             icon: <Search size={24} />,
-            title: 'Discovery',
-            description: 'We start by understanding your brand, goals, and target audience.'
+            title: t('discovery'),
+            description: t('discoveryDesc')
         },
         {
             icon: <Map size={24} />,
-            title: 'Strategy',
-            description: 'We develop a comprehensive roadmap tailored to your specific needs.'
+            title: t('strategy'),
+            description: t('strategyDesc')
         },
         {
             icon: <Zap size={24} />,
-            title: 'Execution',
-            description: 'Our creative team brings the vision to life with precision and flair.'
+            title: t('execution'),
+            description: t('executionDesc')
         },
         {
             icon: <CheckCircle size={24} />,
-            title: 'Delivery',
-            description: 'We deliver the final assets and ensure everything runs smoothly.'
+            title: t('delivery'),
+            description: t('deliveryDesc')
         }
     ];
 
