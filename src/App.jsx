@@ -10,6 +10,7 @@ import WhyUs from './components/WhyUs';
 import Process from './components/Process';
 import Portfolio from './components/Portfolio';
 import ClientsTicker from './components/ClientsTicker';
+import TechPartner from './components/TechPartner';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -28,6 +29,7 @@ function App() {
       <About />
       <Foundation />
       <ServiceCatalog />
+      <TechPartner />
       <WhyUs />
       <ClientsTicker />
       <Process />

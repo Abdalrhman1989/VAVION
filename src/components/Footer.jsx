@@ -64,6 +64,7 @@ const Footer = () => {
                     fontSize: '0.9rem'
                 }}>
                     <p>&copy; {new Date().getFullYear()} Vavion. {t('rights')}</p>
+                    <p>Developed by <a href="https://servixerspace.vercel.app/en" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 'bold' }}>ServixerSpace</a></p>
                 </div>
             </div>
         </footer>
