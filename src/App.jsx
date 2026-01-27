@@ -1,46 +1,20 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Partners from './components/Partners';
-import Stats from './components/Stats';
-import About from './components/About';
-import ServiceCatalog from './components/ServiceCatalog';
-import Foundation from './components/Foundation';
-import WhyUs from './components/WhyUs';
-import Process from './components/Process';
-import Portfolio from './components/Portfolio';
-import ClientsTicker from './components/ClientsTicker';
-import TechPartner from './components/TechPartner';
-import Team from './components/Team';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
-import CTABanner from './components/CTABanner';
-import Booking from './components/Booking';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import BlogPost from './components/BlogPost';
 import IntroScreen from './components/IntroScreen';
+import { useTheme } from './context/ThemeContext';
 
 function App() {
+  const { theme } = useTheme(); // Access theme to force re-render if needed or pass props
+
   return (
-    <>
+    <Router>
       <IntroScreen />
-      <Navbar />
-      <Hero />
-      <Stats />
-      <About />
-      <Foundation />
-      <ServiceCatalog />
-      <TechPartner />
-      <WhyUs />
-      <ClientsTicker />
-      <Process />
-      <Portfolio />
-      <Team />
-      <Testimonials />
-      <FAQ />
-      <CTABanner />
-      <Booking />
-      <Footer />
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+      </Routes>
+    </Router>
   );
 }
 

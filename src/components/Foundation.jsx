@@ -71,7 +71,7 @@ const Foundation = () => {
                             </div>
                             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', textAlign: 'center' }}>
                                 <Building size={40} style={{ color: '#3b82f6', marginBottom: '1rem' }} />
-                                <h4 style={{ fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Riyadh</h4>
+                                <h4 style={{ fontWeight: 'bold', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Jeddah & Madinah</h4>
                                 <span style={{ color: 'var(--text-muted)' }}>{language === 'ar' ? 'المقر الرئيسي' : 'Headquarters'}</span>
                             </div>
                         </div>

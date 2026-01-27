@@ -15,7 +15,7 @@ const About = () => {
                             {t('whoWeAre')}
                         </span>
                         <h2 style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '1.5rem', color: 'var(--text-main)' }}>
-                            Creativity Meets <span className="text-primary">Strategy</span>
+                            {t('aboutTitle1')} <span className="text-primary">{t('aboutTitle2')}</span>
                         </h2>
                         <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
                             {t('aboutText')}
@@ -24,15 +24,15 @@ const About = () => {
                         <div style={{ display: 'flex', gap: '2rem', marginTop: '2rem' }}>
                             <div>
                                 <h3 style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--color-primary)' }}>50+</h3>
-                                <p style={{ color: 'var(--text-muted)' }}>Projects</p>
+                                <p style={{ color: 'var(--text-muted)' }}>{t('projects')}</p>
                             </div>
                             <div>
                                 <h3 style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--color-primary)' }}>20+</h3>
-                                <p style={{ color: 'var(--text-muted)' }}>Clients</p>
+                                <p style={{ color: 'var(--text-muted)' }}>{t('clientsCount')}</p>
                             </div>
                             <div>
                                 <h3 style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--color-primary)' }}>100%</h3>
-                                <p style={{ color: 'var(--text-muted)' }}>Satisfaction</p>
+                                <p style={{ color: 'var(--text-muted)' }}>{t('satisfaction')}</p>
                             </div>
                         </div>
                     </div>

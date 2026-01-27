@@ -12,7 +12,6 @@ const Booking = () => {
         email: '',
         phone: '',
         service: '',
-        date: '',
         message: ''
     });
 
@@ -40,17 +39,21 @@ const Booking = () => {
                 body: JSON.stringify(formData),
             });
 
+            const data = await response.json();
+
             if (response.ok) {
                 setStatus('success');
                 alert(language === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Request submitted successfully!');
-                setFormData({ name: '', email: '', phone: '', service: '', date: '', message: '' }); // Reset form
+                setFormData({ name: '', email: '', phone: '', service: '', message: '' }); // Reset form
             } else {
-                throw new Error('Failed to send');
+                throw new Error(data.error || 'Failed to send');
             }
         } catch (error) {
             console.error('Error:', error);
             setStatus('error');
-            alert(language === 'ar' ? 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.' : 'Error sending request. Please try again.');
+            alert(language === 'ar'
+                ? `حدث خطأ أثناء الإرسال: ${error.message}`
+                : `Error sending request: ${error.message}`);
         } finally {
             setStatus('idle');
         }
@@ -100,7 +103,7 @@ const Booking = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Email Us</h4>
-                                        <a href="mailto:hello@vavion.com" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>hello@vavion.com</a>
+                                        <a href="mailto:vavion.creative@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>vavion.creative@gmail.com</a>
                                     </div>
                                 </div>
 
@@ -119,7 +122,7 @@ const Booking = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Call Us</h4>
-                                        <a href="tel:+966500000000" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>+966 50 000 0000</a>
+                                        <a href="tel:+966565094364" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>+966 56 509 4364</a>
                                     </div>
                                 </div>
 
@@ -234,7 +237,7 @@ const Booking = () => {
                                 />
                             </div>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr', marginBottom: '1.5rem' }}>
                                 <div>
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
                                         {language === 'ar' ? 'الخدمة المطلوبة' : 'Service Required'}
@@ -259,26 +262,6 @@ const Booking = () => {
                                             <option key={service.value} value={service.value}>{service.label}</option>
                                         ))}
                                     </select>
-                                </div>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
-                                        {language === 'ar' ? 'التاريخ المتوقع' : 'Target Date'}
-                                    </label>
-                                    <input
-                                        type="date"
-                                        value={formData.date}
-                                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                                        style={{
-                                            width: '100%',
-                                            padding: '16px',
-                                            backgroundColor: 'var(--bg-body)',
-                                            border: '1px solid var(--border-color)',
-                                            borderRadius: '12px',
-                                            color: 'var(--text-main)',
-                                            outline: 'none',
-                                            fontSize: '1rem'
-                                        }}
-                                    />
                                 </div>
                             </div>
 
