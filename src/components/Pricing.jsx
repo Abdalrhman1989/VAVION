@@ -141,7 +141,6 @@ const Pricing = () => {
                                     width: '100%',
                                     padding: '16px',
                                     borderRadius: '12px',
-                                    borderRadius: '12px',
                                     backgroundColor: pkg.featured ? 'var(--color-primary)' : 'transparent',
                                     color: pkg.featured ? '#fff' : 'var(--text-main)',
                                     border: pkg.featured ? 'none' : '1px solid var(--border-color)',
