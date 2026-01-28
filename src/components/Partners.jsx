@@ -1,85 +1,90 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const Partners = () => {
     const { t, theme } = useTheme();
 
-    const partners = [
-        "SPECTRUMS",
-        "CAFANI GROUP",
-        "WASEEM HAKEEM",
-        "Pilgrims of Turkey & Europe",
-        "National Autad Company",
-        "SPECIAL Events",
-        "DORRAR (AL EIMAN ROYAL)",
-        "Al-Medyaf",
-        "Burj Aljewar",
-        "Aloshrah Alshamiyah",
-        "Damascus Gate",
-        "Amesa",
-        "EMAC",
-        "HLA LAB",
-        "Al-Sham",
-        "BAT"
-    ];
+    const clientImages = [
+        "vavion_copy-01.jpg", "vavion_copy-02.jpg", "vavion_copy-03.jpg", "vavion_copy-04.jpg",
+        "vavion_copy-05.jpg", "vavion_copy-06.jpg", "vavion_copy-07.jpg", "vavion_copy-08.jpg",
+        "vavion_copy-09.jpg", "vavion_copy-10.jpg", "vavion_copy-11.jpg", "vavion_copy-12.jpg",
+        "vavion_copy-13.jpg", "vavion_copy-14.jpg", "vavion_copy-15.jpg", "vavion_copy-16.jpg",
+        "vavion_copy-17.jpg", "vavion_copy-18.jpg", "vavion_copy-19.jpg", "vavion_copy-20.jpg",
+        "vavion_copy-21.jpg", "vavion_copy-22.jpg", "vavion_copy-24.jpg", "vavion_copy-25.jpg"
+    ].map(img => ({
+        src: `/partners/clients/${img}`,
+        alt: img.replace('.jpg', '').replace(/_/g, ' ')
+    }));
 
     return (
-        <section id="portfolio" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
-            {/* Background Pattern */}
-            <div className="bg-grid" style={{
-                position: 'absolute',
-                inset: 0,
-                opacity: 0.1,
-                zIndex: 0
-            }}></div>
-
+        <section id="partners" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                     <h2 className="text-gradient" style={{ fontSize: '3rem', fontWeight: '900', marginBottom: '1rem' }}>
                         {t('partners')} {t('inSuccess')}
                     </h2>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem' }}>
-                        We are proud to have worked with these amazing brands.
-                    </p>
                 </div>
 
                 <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                    gap: '2rem'
+                    display: 'flex',
+                    width: '100%',
+                    position: 'relative',
+                    maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+                    overflow: 'hidden'
                 }}>
-                    {partners.map((partner, index) => (
-                        <div key={index}
-                            className="partner-card"
-                            style={{
-                                backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0.05)' : '#fff',
-                                padding: '2rem',
-                                borderRadius: '12px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                textAlign: 'center',
-                                border: '1px solid var(--border-color)',
-                                fontWeight: '700',
-                                color: 'var(--text-main)',
-                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                                minHeight: '120px',
-                                position: 'relative',
-                                overflow: 'hidden'
-                            }}
-                        >
-                            <div className="arc-shape" style={{
-                                width: '100px',
-                                height: '100px',
-                                top: '-50px',
-                                right: '-50px',
-                                opacity: 0.1
-                            }} />
-                            {partner}
-                        </div>
-                    ))}
+                    <div style={{
+                        display: 'flex',
+                        gap: '4rem',
+                        animation: 'scroll 40s linear infinite',
+                        paddingLeft: '4rem',
+                        alignItems: 'center'
+                    }}>
+                        {[...clientImages, ...clientImages].map((partner, index) => (
+                            <div key={index}
+                                style={{
+                                    flexShrink: 0,
+                                    width: '150px',
+                                    height: '100px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    filter: theme === 'dark' ? 'invert(1) hue-rotate(180deg) saturate(1.5) contrast(1.2)' : 'none',
+                                    mixBlendMode: theme === 'dark' ? 'screen' : 'normal',
+                                    transition: 'all 0.3s ease',
+                                    opacity: theme === 'dark' ? 0.9 : 1
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.filter = theme === 'dark' ? 'invert(1) hue-rotate(180deg) saturate(1.5) contrast(1.2)' : 'none';
+                                    e.currentTarget.style.opacity = '1';
+                                    e.currentTarget.style.transform = 'scale(1.1)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.filter = theme === 'dark' ? 'invert(1) hue-rotate(180deg) saturate(1.5) contrast(1.2)' : 'none';
+                                    e.currentTarget.style.opacity = theme === 'dark' ? '0.9' : '1';
+                                    e.currentTarget.style.transform = 'scale(1)';
+                                }}
+                            >
+                                <img
+                                    src={partner.src}
+                                    alt={partner.alt}
+                                    style={{
+                                        maxWidth: '100%',
+                                        maxHeight: '100%',
+                                        objectFit: 'contain'
+                                    }}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
+            <style>{`
+                @keyframes scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+            `}</style>
         </section>
     );
 };

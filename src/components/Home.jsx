@@ -32,6 +32,7 @@ const Home = () => {
             <TechPartner />
             <WhyUs />
             <ClientsTicker />
+            <Partners />
             <Process />
             <Portfolio />
             <Pricing />

@@ -38,13 +38,43 @@ const projects = [
         title: 'Social Media Campaign',
         categoryKey: 'marketing',
         image: 'https://images.unsplash.com/photo-1557838923-2985c318be48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+        id: 7,
+        title: 'Strategic Partner 1',
+        categoryKey: 'strategic',
+        image: '/partners/strategic/uploaded_media_0_1769569215447.jpg',
+    },
+    {
+        id: 8,
+        title: 'Strategic Partner 2',
+        categoryKey: 'strategic',
+        image: '/partners/strategic/uploaded_media_1_1769569215447.jpg',
+    },
+    {
+        id: 9,
+        title: 'Strategic Partner 3',
+        categoryKey: 'strategic',
+        image: '/partners/strategic/uploaded_media_2_1769569215447.jpg',
+    },
+    {
+        id: 10,
+        title: 'Strategic Partner 4',
+        categoryKey: 'strategic',
+        image: '/partners/strategic/uploaded_media_3_1769569215447.jpg',
+    },
+    {
+        id: 11,
+        title: 'Strategic Partner 5',
+        categoryKey: 'strategic',
+        image: '/partners/strategic/uploaded_media_4_1769569215447.jpg',
     }
 ];
 
 const Portfolio = () => {
     const { t } = useTheme();
     // Simplified categories for demo as translation keys
-    const categories = ['All', 'webApp', 'digital', 'visualIdentity', 'marketing'];
+    const categories = ['All', 'webApp', 'digital', 'visualIdentity', 'marketing', 'strategic'];
     const [activeCategory, setActiveCategory] = useState('All');
 
     const filteredProjects = activeCategory === 'All'

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { Mail, Phone, MapPin, Send, ArrowRight, Clock, User } from 'lucide-react';
 import Button from './ui/Button';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const Booking = () => {
     const { t, language } = useTheme();
@@ -9,6 +11,8 @@ const Booking = () => {
 
     const [formData, setFormData] = useState({
         name: '',
+        fullName: '',
+        userId: '',
         email: '',
         phone: '',
         service: '',
@@ -39,17 +43,37 @@ const Booking = () => {
                 body: JSON.stringify(formData),
             });
 
-            const data = await response.json();
+            let data;
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                data = await response.json();
+            } else {
+                const text = await response.text();
+                console.error("Non-JSON response received:", text);
+                throw new Error("Server returned an invalid response (not JSON). If you are running locally, ensure you are using 'vercel dev' to support API routes.");
+            }
 
             if (response.ok) {
                 setStatus('success');
                 alert(language === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Request submitted successfully!');
-                setFormData({ name: '', email: '', phone: '', service: '', message: '' }); // Reset form
+                setFormData({ name: '', fullName: '', userId: '', email: '', phone: '', service: '', message: '' }); // Reset form
             } else {
-                throw new Error(data.error || 'Failed to send');
+                throw new Error(data?.error || 'Failed to send');
             }
         } catch (error) {
             console.error('Error:', error);
+
+            // Fallback for Local Development
+            if (import.meta.env.DEV && error.message.includes('not JSON')) {
+                console.warn("Development Mode: API not available. Simulating success.");
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate delay
+                setStatus('success');
+                alert(language === 'ar' ? 'تم إرسال طلبك بنجاح! (محاكاة - بيئة التطوير المحلية)' : 'Request submitted successfully! (Simulation - Local Dev)');
+                setFormData({ name: '', fullName: '', userId: '', email: '', phone: '', service: '', message: '' });
+                setStatus('idle');
+                return;
+            }
+
             setStatus('error');
             alert(language === 'ar'
                 ? `حدث خطأ أثناء الإرسال: ${error.message}`
@@ -103,7 +127,7 @@ const Booking = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Email Us</h4>
-                                        <a href="mailto:vavion.creative@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>vavion.creative@gmail.com</a>
+                                        <a href="mailto:vavion.creative@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>vavion.2030@gmail.com</a>
                                     </div>
                                 </div>
 
@@ -180,10 +204,32 @@ const Booking = () => {
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         style={{
                                             width: '100%',
-                                            padding: '16px',
+                                            padding: '12px 16px', // Slightly reduced padding for better align
                                             backgroundColor: 'var(--bg-body)',
                                             border: '1px solid var(--border-color)',
-                                            borderRadius: '12px',
+                                            borderRadius: '8px', // Match common radius
+                                            color: 'var(--text-main)',
+                                            outline: 'none',
+                                            fontSize: '1rem'
+                                        }}
+                                        placeholder={language === 'ar' ? 'الاسم' : 'Name'}
+                                    />
+                                </div>
+                                <div>
+                                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
+                                        {language === 'ar' ? 'الاسم الكامل' : 'Full Name'}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        required
+                                        value={formData.fullName}
+                                        onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                                        style={{
+                                            width: '100%',
+                                            padding: '12px 16px',
+                                            backgroundColor: 'var(--bg-body)',
+                                            border: '1px solid var(--border-color)',
+                                            borderRadius: '8px',
                                             color: 'var(--text-main)',
                                             outline: 'none',
                                             fontSize: '1rem'
@@ -191,25 +237,63 @@ const Booking = () => {
                                         placeholder={language === 'ar' ? 'الاسم الكامل' : 'Full Name'}
                                     />
                                 </div>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
-                                        {language === 'ar' ? 'رقم الهاتف' : 'Phone'}
-                                    </label>
-                                    <input
-                                        type="tel"
+                            </div>
+
+                            <div style={{ marginBottom: '1.5rem' }}>
+                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: '500', color: 'var(--text-main)' }}>
+                                    {language === 'ar' ? 'رقم الهاتف' : 'Phone Number'}
+                                </label>
+                                <div dir="ltr"> {/* Force LTR for phone input to ensure flags/numbers work correctly */}
+                                    <style>
+                                        {`
+                                                .react-tel-input .form-control {
+                                                    background-color: var(--bg-body) !important;
+                                                    border-color: var(--border-color) !important;
+                                                    color: var(--text-main) !important;
+                                                }
+                                                .react-tel-input .flag-dropdown {
+                                                    background-color: var(--bg-body) !important;
+                                                    border-color: var(--border-color) !important;
+                                                }
+                                                .react-tel-input .selected-flag:hover, 
+                                                .react-tel-input .selected-flag.open {
+                                                    background-color: rgba(233, 92, 39, 0.1) !important;
+                                                }
+                                                .react-tel-input .country-list {
+                                                    background-color: var(--bg-card) !important;
+                                                    color: var(--text-main) !important;
+                                                    border: 1px solid var(--border-color) !important;
+                                                }
+                                                .react-tel-input .country-list .country.highlight, 
+                                                .react-tel-input .country-list .country:hover {
+                                                    background-color: rgba(233, 92, 39, 0.2) !important;
+                                                    color: var(--text-main) !important;
+                                                }
+                                                .react-tel-input .country-list .country .dial-code {
+                                                    color: var(--text-muted) !important;
+                                                }
+                                            `}
+                                    </style>
+                                    <PhoneInput
+                                        country={'sa'}
                                         value={formData.phone}
-                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                        style={{
+                                        onChange={phone => setFormData({ ...formData, phone })}
+                                        containerStyle={{ width: '100%' }}
+                                        inputStyle={{
                                             width: '100%',
-                                            padding: '16px',
-                                            backgroundColor: 'var(--bg-body)',
-                                            border: '1px solid var(--border-color)',
-                                            borderRadius: '12px',
-                                            color: 'var(--text-main)',
-                                            outline: 'none',
-                                            fontSize: '1rem'
+                                            height: '50px',
+                                            fontSize: '1rem',
+                                            paddingLeft: '48px',
+                                            // items styled via css injection for better control
                                         }}
-                                        placeholder="+966..."
+                                        buttonStyle={{
+                                            borderRight: 'none',
+                                            borderTopLeftRadius: '8px',
+                                            borderBottomLeftRadius: '8px',
+                                        }}
+                                        dropdownStyle={{
+                                            // Handled by CSS
+                                        }}
                                     />
                                 </div>
                             </div>
@@ -225,10 +309,10 @@ const Booking = () => {
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                     style={{
                                         width: '100%',
-                                        padding: '16px',
+                                        padding: '12px 16px',
                                         backgroundColor: 'var(--bg-body)',
                                         border: '1px solid var(--border-color)',
-                                        borderRadius: '12px',
+                                        borderRadius: '8px',
                                         color: 'var(--text-main)',
                                         outline: 'none',
                                         fontSize: '1rem'
@@ -247,10 +331,10 @@ const Booking = () => {
                                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                                         style={{
                                             width: '100%',
-                                            padding: '16px',
+                                            padding: '12px 16px',
                                             backgroundColor: 'var(--bg-body)',
                                             border: '1px solid var(--border-color)',
-                                            borderRadius: '12px',
+                                            borderRadius: '8px',
                                             color: 'var(--text-main)',
                                             outline: 'none',
                                             fontSize: '1rem',
@@ -275,10 +359,10 @@ const Booking = () => {
                                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     style={{
                                         width: '100%',
-                                        padding: '16px',
+                                        padding: '12px 16px',
                                         backgroundColor: 'var(--bg-body)',
                                         border: '1px solid var(--border-color)',
-                                        borderRadius: '12px',
+                                        borderRadius: '8px',
                                         color: 'var(--text-main)',
                                         outline: 'none',
                                         resize: 'none',
