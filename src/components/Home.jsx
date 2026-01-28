@@ -31,7 +31,6 @@ const Home = () => {
             <ServiceCatalog />
             <TechPartner />
             <WhyUs />
-            <ClientsTicker />
             <Partners />
             <Process />
             <Portfolio />

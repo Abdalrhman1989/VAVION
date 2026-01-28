@@ -126,8 +126,10 @@ const Booking = () => {
                                         <Mail size={28} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Email Us</h4>
-                                        <a href="mailto:vavion.creative@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>vavion.2030@gmail.com</a>
+                                        <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>
+                                            {language === 'ar' ? 'البريد الإلكتروني' : 'Email Us'}
+                                        </h4>
+                                        <a href="mailto:vavion.2030@gmail.com" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>vavion.2030@gmail.com</a>
                                     </div>
                                 </div>
 
@@ -145,8 +147,10 @@ const Booking = () => {
                                         <Phone size={28} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Call Us</h4>
-                                        <a href="tel:+966565094364" style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>+966 56 509 4364</a>
+                                        <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>
+                                            {language === 'ar' ? 'الإدارة (هاشم حبوب)' : 'Management (Hashem Habboub)'}
+                                        </h4>
+                                        <a href="tel:+966565094364" dir="ltr" style={{ color: 'var(--text-muted)', fontSize: '1.1rem', display: 'block', direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}>+966 56 509 4364</a>
                                     </div>
                                 </div>
 
