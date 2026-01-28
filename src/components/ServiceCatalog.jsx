@@ -121,7 +121,7 @@ const ServiceCatalog = () => {
     ];
 
     return (
-        <section className="section" style={{ position: 'relative' }}>
+        <section id="services" className="section" style={{ position: 'relative' }}>
             {/* Background curved shape mimicking images */}
             <div style={{
                 position: 'absolute',

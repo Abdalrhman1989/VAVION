@@ -27,6 +27,7 @@ const Footer = () => {
                             <li><a href="#home" style={{ color: 'var(--text-muted)' }}>{t('home')}</a></li>
                             <li><a href="#services" style={{ color: 'var(--text-muted)' }}>{t('services')}</a></li>
                             <li><a href="#portfolio" style={{ color: 'var(--text-muted)' }}>{t('portfolio')}</a></li>
+                            <li><a href="#contact" style={{ color: 'var(--text-muted)' }}>{t('contact')}</a></li>
                         </ul>
                     </div>
 
