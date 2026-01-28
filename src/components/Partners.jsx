@@ -31,7 +31,8 @@ const Partners = () => {
                     position: 'relative',
                     maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
                     WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    direction: 'ltr'
                 }}>
                     <div style={{
                         display: 'flex',
