@@ -36,13 +36,13 @@ const Partners = () => {
     }));
 
     return (
-        <section id="partners" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+        <section id="partners" className="section" style={{ position: 'relative', overflow: 'hidden', padding: '3.25rem 0' }}>
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                    <h2 className="text-gradient" style={{ fontSize: '3rem', fontWeight: '900', marginBottom: '0.75rem' }}>
+                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+                    <h2 className="text-gradient" style={{ fontSize: '2.15rem', fontWeight: '800', marginBottom: '0.45rem' }}>
                         {t('partners')} {t('inSuccess')}
                     </h2>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.98rem' }}>
                         {isAr
                             ? 'نعتز بثقة أكثر من 26 مؤسسة ومجموعة تجارية وفندقية رائدة في المملكة العربية السعودية'
                             : 'Trusted by 26+ leading corporate groups, hospitality brands, and institutions across Saudi Arabia'}
@@ -60,9 +60,9 @@ const Partners = () => {
                 }}>
                     <div style={{
                         display: 'flex',
-                        gap: '2rem',
+                        gap: '1.25rem',
                         animation: 'scroll 45s linear infinite',
-                        paddingLeft: '2rem',
+                        paddingLeft: '1.25rem',
                         alignItems: 'center'
                     }}>
                         {[...clientPartners, ...clientPartners].map((partner, index) => (
@@ -71,25 +71,25 @@ const Partners = () => {
                                 title={partner.alt}
                                 style={{
                                     flexShrink: 0,
-                                    width: '170px',
-                                    height: '104px',
+                                    width: '140px',
+                                    height: '82px',
                                     backgroundColor: '#ffffff',
-                                    borderRadius: '16px',
-                                    padding: '12px 18px',
-                                    border: '1px solid rgba(233, 92, 39, 0.2)',
-                                    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.18)',
+                                    borderRadius: '12px',
+                                    padding: '10px 14px',
+                                    border: '1px solid rgba(233, 92, 39, 0.18)',
+                                    boxShadow: '0 4px 14px rgba(0, 0, 0, 0.14)',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                    transition: 'transform 0.25s ease, box-shadow 0.25s ease',
                                 }}
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(-4px) scale(1.04)';
-                                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(233, 92, 39, 0.25)';
+                                    e.currentTarget.style.transform = 'translateY(-3px)';
+                                    e.currentTarget.style.boxShadow = '0 8px 20px rgba(233, 92, 39, 0.22)';
                                 }}
                                 onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                                    e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.18)';
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.14)';
                                 }}
                             >
                                 <img

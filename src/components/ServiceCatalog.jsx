@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 import {
     Printer, PenTool, Image, Truck, Layout,
     Monitor, Grid, Flag, Box, Smartphone,
-    Sparkles, Stamp, Scissors, Gift, Frame
+    Sparkles, Stamp, Gift, Frame
 } from 'lucide-react';
 
 const ServiceCatalog = () => {
@@ -163,7 +163,7 @@ const ServiceCatalog = () => {
                 position: 'absolute',
                 top: 0,
                 right: 0,
-                width: '50%',
+                width: '45%',
                 height: '100%',
                 background: 'rgba(233, 92, 39, 0.03)',
                 borderRadius: isRTL ? '0 300px 300px 0' : '300px 0 0 300px',
@@ -171,95 +171,65 @@ const ServiceCatalog = () => {
             }} />
 
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h2 style={{ fontSize: '3rem', fontWeight: '900', marginBottom: '1rem', color: 'var(--text-main)' }}>
+                <div style={{ textAlign: 'center', marginBottom: '2.75rem' }}>
+                    <h2 style={{ fontSize: '2.15rem', fontWeight: '800', marginBottom: '0.6rem', color: 'var(--text-main)' }}>
                         {language === 'ar' ? 'خدماتنا المتكاملة (16 قسماً تخصصياً)' : 'Our 16 Specialized Service Divisions'}
                     </h2>
-                    <p style={{ color: 'var(--text-muted)', maxWidth: '720px', margin: '0 auto 1.5rem', fontSize: '1.1rem' }}>
+                    <p style={{ color: 'var(--text-muted)', maxWidth: '680px', margin: '0 auto 1rem', fontSize: '0.98rem' }}>
                         {language === 'ar'
                             ? 'منظومة متكاملة من خدمات الطباعة الحديثة، اللوحات الإعلانية، الهوية البصرية، والحلول الرقمية في جدة والمدينة المنورة.'
                             : 'Full-spectrum printing, architectural signage, brand identity, and custom software solutions in Jeddah & Al-Madinah Al-Munawwarah.'}
                     </p>
-                    <div style={{ width: '80px', height: '6px', background: 'var(--color-primary)', margin: '0 auto', borderRadius: '3px' }}></div>
+                    <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto', borderRadius: '2px' }}></div>
                 </div>
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
-                    gap: '2rem'
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(265px, 1fr))',
+                    gap: '1.35rem'
                 }}>
                     {catalogItems.map((item) => (
                         <div key={item.id} style={{
                             position: 'relative',
-                            padding: '2rem',
-                            borderRadius: '30px 0 30px 0',
+                            padding: '1.5rem',
+                            borderRadius: '20px 4px 20px 4px',
                             backgroundColor: 'var(--bg-card)',
-                            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                            boxShadow: '0 4px 16px rgba(0,0,0,0.1)',
                             border: '1px solid var(--border-color)',
-                            transition: 'all 0.3s ease',
-                            borderRight: isRTL ? `5px solid ${item.color}` : '1px solid var(--border-color)',
-                            borderLeft: isRTL ? '1px solid var(--border-color)' : `5px solid ${item.color}`
+                            transition: 'all 0.25s ease',
+                            borderRight: isRTL ? `4px solid ${item.color}` : '1px solid var(--border-color)',
+                            borderLeft: isRTL ? '1px solid var(--border-color)' : `4px solid ${item.color}`
                         }}
                             onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-8px)';
-                                e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+                                e.currentTarget.style.transform = 'translateY(-5px)';
+                                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.18)';
                             }}
                             onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)';
                             }}
                         >
                             <div style={{
-                                width: '72px',
-                                height: '72px',
-                                borderRadius: '50%',
-                                backgroundColor: item.color,
+                                width: '52px',
+                                height: '52px',
+                                borderRadius: '14px',
+                                backgroundColor: `${item.color}18`,
+                                border: `1px solid ${item.color}40`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                marginBottom: '1.5rem',
-                                boxShadow: `0 10px 20px ${item.color}40`,
-                                position: 'relative'
+                                marginBottom: '1rem',
                             }}>
-                                <item.icon size={32} color="#fff" />
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '-5px',
-                                    right: '-5px',
-                                    width: '100%',
-                                    height: '100%',
-                                    border: `2px solid ${item.color}`,
-                                    borderRadius: '50%',
-                                    opacity: 0.35
-                                }} />
+                                <item.icon size={24} color={item.color} />
                             </div>
 
-                            <h3 style={{ fontSize: '1.35rem', fontWeight: '800', marginBottom: '0.85rem', color: 'var(--text-main)' }}>
+                            <h3 style={{ fontSize: '1.1rem', fontWeight: '800', marginBottom: '0.55rem', color: 'var(--text-main)' }}>
                                 {item.title}
                             </h3>
 
-                            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '0.98rem' }}>
+                            <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', fontSize: '0.9rem' }}>
                                 {item.description}
                             </p>
-
-                            <div style={{
-                                position: 'absolute',
-                                top: '20px',
-                                [isRTL ? 'left' : 'right']: '20px',
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(3, 1fr)',
-                                gap: '4px'
-                            }}>
-                                {[...Array(9)].map((_, i) => (
-                                    <div key={i} style={{
-                                        width: '4px',
-                                        height: '4px',
-                                        backgroundColor: item.color,
-                                        borderRadius: '50%',
-                                        opacity: 0.35
-                                    }} />
-                                ))}
-                            </div>
                         </div>
                     ))}
                 </div>

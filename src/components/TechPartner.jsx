@@ -7,41 +7,41 @@ const TechPartner = () => {
     const isRTL = language === 'ar';
 
     return (
-        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', padding: '5rem 0' }}>
+        <section className="section" style={{ backgroundColor: 'var(--bg-secondary)', padding: '3rem 0' }}>
             <div className="container">
                 <div className="glass-card" style={{
-                    padding: '3rem',
-                    borderRadius: '24px',
+                    padding: '2.25rem 2rem',
+                    borderRadius: '20px',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     textAlign: 'center',
-                    border: '1px solid var(--color-primary)',
-                    background: 'linear-gradient(145deg, rgba(233, 92, 39, 0.05) 0%, rgba(0,0,0,0) 100%)'
+                    border: '1px solid rgba(233, 92, 39, 0.35)',
+                    background: 'linear-gradient(145deg, rgba(233, 92, 39, 0.06) 0%, rgba(0,0,0,0) 100%)'
                 }}>
 
                     <div style={{
                         backgroundColor: 'var(--color-primary)',
                         color: '#fff',
-                        padding: '0.5rem 1.5rem',
+                        padding: '0.35rem 1.15rem',
                         borderRadius: '20px',
-                        fontWeight: 'bold',
-                        fontSize: '0.9rem',
-                        marginBottom: '2rem',
+                        fontWeight: '700',
+                        fontSize: '0.82rem',
+                        marginBottom: '1.15rem',
                         display: 'inline-flex',
                         alignItems: 'center',
-                        gap: '0.5rem'
+                        gap: '0.45rem'
                     }}>
-                        <ShieldCheck size={16} />
+                        <ShieldCheck size={15} />
                         {language === 'ar' ? 'شريك تقني استراتيجي' : 'Strategic Tech Partner'}
                     </div>
 
                     <h2 style={{
-                        fontSize: '2.5rem',
-                        fontWeight: '900',
-                        marginBottom: '1rem',
+                        fontSize: '1.9rem',
+                        fontWeight: '800',
+                        marginBottom: '0.75rem',
                         color: 'var(--text-main)',
-                        maxWidth: '800px'
+                        maxWidth: '720px'
                     }}>
                         {language === 'ar'
                             ? 'حلول رقمية متطورة بدعم من ServixerSpace'
@@ -50,36 +50,37 @@ const TechPartner = () => {
 
                     <p style={{
                         color: 'var(--text-muted)',
-                        fontSize: '1.2rem',
-                        maxWidth: '700px',
-                        marginBottom: '2.5rem',
-                        lineHeight: '1.8'
+                        fontSize: '1rem',
+                        maxWidth: '640px',
+                        marginBottom: '1.5rem',
+                        lineHeight: '1.7'
                     }}>
                         {language === 'ar'
                             ? 'نفتخر بشراكتنا الاستراتيجية مع ServixerSpace لتقديم أفضل خدمات تطوير الويب والتطبيقات بأعلى معايير الجودة والأداء.'
-                            : 'We are proud of our strategic partnership with ServixerSpace to provide top-tier web and app development services with the highest standards of quality and performance.'}
+                            : 'We are proud of our strategic partnership with ServixerSpace to deliver enterprise web and mobile application engineering with the highest standards of performance.'}
                     </p>
 
                     <div style={{
                         display: 'flex',
                         flexWrap: 'wrap',
-                        gap: '1.5rem',
+                        gap: '1.25rem',
                         justifyContent: 'center',
-                        marginBottom: '3rem'
+                        marginBottom: '1.75rem',
+                        fontSize: '0.92rem'
                     }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)' }}>
-                            <Globe size={20} style={{ color: 'var(--color-primary)' }} />
-                            <span>{language === 'ar' ? 'تطوير مواقع الويب' : 'Web Development'}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-main)' }}>
+                            <Globe size={18} style={{ color: 'var(--color-primary)' }} />
+                            <span>{language === 'ar' ? 'تطوير مواقع الويب' : 'Web Engineering'}</span>
                         </div>
-                        <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--border-color)' }}></div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)' }}>
-                            <Code size={20} style={{ color: 'var(--color-primary)' }} />
+                        <div style={{ width: '1px', height: '20px', backgroundColor: 'var(--border-color)' }}></div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-main)' }}>
+                            <Code size={18} style={{ color: 'var(--color-primary)' }} />
                             <span>{language === 'ar' ? 'تطبيقات الجوال' : 'Mobile Apps'}</span>
                         </div>
-                        <div style={{ width: '1px', height: '24px', backgroundColor: 'var(--border-color)' }}></div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-main)' }}>
-                            <ShieldCheck size={20} style={{ color: 'var(--color-primary)' }} />
-                            <span>{language === 'ar' ? 'أمان وموثوقية' : 'Secure & Reliable'}</span>
+                        <div style={{ width: '1px', height: '20px', backgroundColor: 'var(--border-color)' }}></div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-main)' }}>
+                            <ShieldCheck size={18} style={{ color: 'var(--color-primary)' }} />
+                            <span>{language === 'ar' ? 'أمان وموثوقية' : 'Enterprise Security'}</span>
                         </div>
                     </div>
 
@@ -90,18 +91,18 @@ const TechPartner = () => {
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '0.5rem',
+                            gap: '0.45rem',
                             color: 'var(--color-primary)',
-                            fontWeight: 'bold',
-                            fontSize: '1.1rem',
+                            fontWeight: '700',
+                            fontSize: '0.98rem',
                             borderBottom: '2px solid transparent',
                             transition: 'all 0.3s ease'
                         }}
                         onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = 'var(--color-primary)'}
                         onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}
                     >
-                        {language === 'ar' ? 'زيارة موقع الشريك' : 'Visit Partner Website'}
-                        <ArrowRight size={20} style={{ transform: isRTL ? 'rotate(180deg)' : 'none' }} />
+                        {language === 'ar' ? 'زيارة موقع الشريك التقني' : 'Visit Strategic Partner'}
+                        <ArrowRight size={18} style={{ transform: isRTL ? 'rotate(180deg)' : 'none' }} />
                     </a>
                 </div>
             </div>
