@@ -148,9 +148,11 @@ const Booking = () => {
                                     </div>
                                     <div>
                                         <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>
-                                            {language === 'ar' ? 'الإدارة (هاشم حبوب)' : 'Management (Hashem Habboub)'}
+                                            {language === 'ar' ? 'الإدارة والمبيعات' : 'Management & Direct Sales'}
                                         </h4>
-                                        <a href="tel:+966565094364" dir="ltr" style={{ color: 'var(--text-muted)', fontSize: '1.1rem', display: 'block', direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}>+966 56 509 4364</a>
+                                        <a href="tel:+966565094364" dir="ltr" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', display: 'block', direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}>+966 56 509 4364 (Hashem Habboub)</a>
+                                        <a href="tel:+966581121481" dir="ltr" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', display: 'block', direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}>+966 58 112 1481 (Main Line)</a>
+                                        <a href="tel:+966538806338" dir="ltr" style={{ color: 'var(--text-muted)', fontSize: '1.05rem', display: 'block', direction: 'ltr', textAlign: isRTL ? 'right' : 'left' }}>+966 53 880 6338 (Ayham Habboub)</a>
                                     </div>
                                 </div>
 
@@ -168,8 +170,14 @@ const Booking = () => {
                                         <MapPin size={28} />
                                     </div>
                                     <div>
-                                        <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>Visit Us</h4>
-                                        <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>{t('jeddahMadinah')}</p>
+                                        <h4 style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '0.2rem', color: 'var(--text-main)' }}>
+                                            {language === 'ar' ? 'فروعنا ومقرنا' : 'Visit Our Branches'}
+                                        </h4>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
+                                            {language === 'ar'
+                                                ? 'المدينة المنورة (بئر عثمان - طريق الملك عبدالله الفرعي) | جدة، المملكة العربية السعودية'
+                                                : 'Al-Madinah Al-Munawwarah (Bir Uthman, King Abdullah Branch Rd) & Jeddah, KSA'}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -178,13 +186,21 @@ const Booking = () => {
                         <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
                             <div className="glass-card" style={{ flex: 1, padding: '1.5rem', borderRadius: '16px', textAlign: 'center' }}>
                                 <Clock size={32} style={{ color: 'var(--color-primary)', marginBottom: '1rem' }} />
-                                <h4 style={{ fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>24/7 Response</h4>
-                                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>We typically reply within few hours</span>
+                                <h4 style={{ fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+                                    {language === 'ar' ? 'استجابة سريعة 24/7' : '24/7 Fast Response'}
+                                </h4>
+                                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                                    {language === 'ar' ? 'نرد على جميع الاستفسارات خلال ساعات قليلة' : 'We typically reply within a few hours'}
+                                </span>
                             </div>
                             <div className="glass-card" style={{ flex: 1, padding: '1.5rem', borderRadius: '16px', textAlign: 'center' }}>
                                 <User size={32} style={{ color: '#3b82f6', marginBottom: '1rem' }} />
-                                <h4 style={{ fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>Expert Team</h4>
-                                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Direct access to specialists</span>
+                                <h4 style={{ fontWeight: 'bold', fontSize: '1rem', marginBottom: '0.5rem', color: 'var(--text-main)' }}>
+                                    {language === 'ar' ? 'فريق استشاري متخصص' : 'Expert Advisory Team'}
+                                </h4>
+                                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                                    {language === 'ar' ? 'تواصل مباشر مع خبراء الطباعة والبرمجيات' : 'Direct access to print & digital specialists'}
+                                </span>
                             </div>
                         </div>
                     </div>

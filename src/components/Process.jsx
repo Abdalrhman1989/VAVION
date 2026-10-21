@@ -3,7 +3,7 @@ import { useTheme } from '../context/ThemeContext';
 import { Search, Map, Zap, CheckCircle } from 'lucide-react';
 
 const Process = () => {
-    const { t } = useTheme();
+    const { t, language } = useTheme();
 
     const steps = [
         {
@@ -36,7 +36,9 @@ const Process = () => {
                         {t('processTitle')}
                     </h2>
                     <p style={{ color: 'var(--text-muted)', maxWidth: '600px', margin: '0 auto' }}>
-                        From concept to completion, we ensure a seamless journey.
+                        {language === 'ar'
+                            ? 'من الفكرة الأولى وحتى التسليم النهائي، نضمن لك رحلة إبداعية وتنفيذية سلسة ومتقنة.'
+                            : 'From initial concept to final delivery, we ensure a seamless creative and production journey.'}
                     </p>
                 </div>
 

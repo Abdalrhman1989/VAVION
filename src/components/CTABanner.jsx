@@ -84,12 +84,12 @@ const CTABanner = () => {
                     </p>
 
                     <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <Button onClick={() => window.location.href = '#booking'} style={{ padding: '16px 32px', fontSize: '1.1rem' }}>
+                        <Button onClick={() => window.location.href = '#contact'} style={{ padding: '16px 32px', fontSize: '1.1rem' }}>
                             {language === 'ar' ? 'ابدأ الآن' : 'Get Started'}
                             <ArrowRight size={20} style={{ marginLeft: isRTL ? 0 : '0.5rem', marginRight: isRTL ? '0.5rem' : 0, transform: isRTL ? 'rotate(180deg)' : 'none' }} />
                         </Button>
-                        <Button variant="outline" onClick={() => window.location.href = '#contact'} style={{ padding: '16px 32px', fontSize: '1.1rem', borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
-                            {language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+                        <Button variant="outline" onClick={() => window.location.href = '#portfolio'} style={{ padding: '16px 32px', fontSize: '1.1rem', borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
+                            {language === 'ar' ? 'استعرض أعمالنا' : 'Explore Portfolio'}
                         </Button>
                     </div>
                 </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 import {
     Printer, PenTool, Image, Truck, Layout,
-    Monitor, Grid, Flag, ShoppingBag, Box, Smartphone
+    Monitor, Grid, Flag, Box, Smartphone,
+    Sparkles, Stamp, Scissors, Gift, Frame
 } from 'lucide-react';
 
 const ServiceCatalog = () => {
@@ -13,10 +14,10 @@ const ServiceCatalog = () => {
         {
             id: 'web-dev',
             icon: Monitor,
-            title: language === 'ar' ? 'تطوير المواقع الإلكترونية' : 'Web Development',
+            title: language === 'ar' ? 'تطوير المواقع والمنصات الرقمية' : 'Web & Platform Engineering',
             description: language === 'ar'
-                ? 'تصميم وتطوير مواقع إلكترونية احترافية، متاجر إلكترونية، وانظمة إدارة محتوى مخصصة تناسب احتياجات نشاطك التجاري.'
-                : 'Design and development of professional websites, e-commerce stores, and custom content management systems tailored to your business needs.',
+                ? 'تصميم وتطوير مواقع إلكترونية احترافية، متاجر إلكترونية، وأنظمة إدارة محتوى مخصصة بأعلى معايير الأداء بالتعاون مع ServixerSpace.'
+                : 'Design and development of high-performance websites, e-commerce platforms, and custom digital portals powered by ServixerSpace.',
             color: '#3b82f6'
         },
         {
@@ -24,105 +25,140 @@ const ServiceCatalog = () => {
             icon: Smartphone,
             title: language === 'ar' ? 'تطوير تطبيقات الجوال' : 'Mobile App Development',
             description: language === 'ar'
-                ? 'برمجة تطبيقات جوال (iOS & Android) بأحدث التقنيات مع تركيز على تجربة المستخدم وسهولة الاستخدام.'
-                : 'Developing mobile applications (iOS & Android) using the latest technologies with a focus on user experience and ease of use.',
+                ? 'برمجة تطبيقات جوال (iOS & Android) بأحدث التقنيات مع تركيز فائق على تجربة المستخدم وسرعة الأداء.'
+                : 'Developing native and cross-platform mobile applications (iOS & Android) focused on seamless user experience and scalability.',
             color: '#8b5cf6'
+        },
+        {
+            id: 'identity',
+            icon: PenTool,
+            title: language === 'ar' ? 'تصميم الهوية البصرية والمطبوعات' : 'Visual Identity & Brand Systems',
+            description: language === 'ar'
+                ? 'تصميم الهويات البصرية الكاملة والشعارات التجارية والأكياس الورقية الفاخرة (250–350 جرام) بأفكار إبداعية متكاملة.'
+                : 'Designing complete visual identities, commercial logos, brand books, and luxury custom paper bags (A2–A6, 250–350 gsm).',
+            color: '#E95C27'
         },
         {
             id: 'offset',
             icon: Printer,
-            title: language === 'ar' ? 'الطباعة الاوفسيت' : 'Offset Printing',
+            title: language === 'ar' ? 'الطباعة الأوفسيت التجارية' : 'Commercial Offset Printing',
             description: language === 'ar'
-                ? 'وهي تنفيذ المطبوعات الورقية تكون بمكائن طباعة اختصاصية للكميات الكبيرة والتجارية كورق خطابات الشركات وهويتها البصرية والعلب والمجلات والبرشورات الاعلانية والاستكرات التجارية للمصانع وغيرها.'
-                : 'Execution of paper publications using specialized printing machines for large commercial quantities, such as corporate letterheads, visual identities, boxes, magazines, advertising brochures, and commercial stickers for factories.',
-            color: '#E95C27'
+                ? 'تنفيذ المطبوعات الورقية بمكائن طباعة اختصاصية للكميات الكبيرة كورق خطابات الشركات، العلب، المجلات، البروشورات، واستكرات المصانع.'
+                : 'High-volume commercial paper printing including corporate letterheads, packaging boxes, magazines, brochures, and factory labels.',
+            color: '#f59e0b'
+        },
+        {
+            id: 'digital-print',
+            icon: Sparkles,
+            title: language === 'ar' ? 'الطباعة الرقمية السريعة (الديجيتال)' : 'High-Speed Digital Printing',
+            description: language === 'ar'
+                ? 'حلول طباعة رقمية فورية وعالية الدقة للكميات المحدودة والمواعيد العاجلة مع ثبات ألوان استثنائي وجودة فائقة.'
+                : 'Same-day, high-resolution digital printing tailored for urgent deadlines, short runs, and executive presentations.',
+            color: '#10b981'
         },
         {
             id: 'computer',
             icon: Box,
-            title: language === 'ar' ? 'فواتير الكومبيوتر' : 'Computer Invoices',
+            title: language === 'ar' ? 'فواتير الكومبيوتر المتصلة' : 'Continuous Computer Invoices',
             description: language === 'ar'
-                ? 'وهي الفواتير المتصلة والمخصصة للطابعات النقطية إيبسون وتكون بخيارات متعددة بالطباعة ( لون – لونين – 4 لون ) ومقاسات مختلفة.'
-                : 'Continuous invoices dedicated for Epson dot matrix printers, available in multiple printing options (1 color, 2 colors, 4 colors) and various sizes.',
-            color: '#1e293b'
+                ? 'الفواتير المتصلة والمخصصة للطابعات النقطية (Epson) بخيارات متعددة بالطباعة (لون، لونين، 4 ألوان) ومقاسات متنوعة.'
+                : 'Continuous carbonless forms dedicated for Epson dot-matrix printers, available in 1, 2, or 4 colors across multiple sizes.',
+            color: '#06b6d4'
         },
         {
             id: 'silkscreen',
             icon: Image,
-            title: language === 'ar' ? 'طباعة الشاشة الحريرية' : 'Silk Screen Printing',
+            title: language === 'ar' ? 'طباعة الشاشة الحريرية (سلك سكرين)' : 'Silk Screen Printing',
             description: language === 'ar'
-                ? 'وهي طباعة فنية على أيدي حرفيين مهرة تنفذ على الهدايا الاعلانية المتنوعة وتكون على شكل طباعة لون أو لونين أو عدة ألوان.'
-                : 'Artistic printing by skilled craftsmen executed on various advertising gifts, available in single, dual, or multi-color printing.',
+                ? 'طباعة فنية متقنة على أيدي حرفيين مهرة تنفذ على الهدايا الإعلانية والأكياس والمنسوجات بلون أو عدة ألوان.'
+                : 'Artisanal single and multi-color screen printing executed by master craftsmen on promotional gifts, bags, and textiles.',
             color: '#E95C27'
         },
         {
             id: 'thermal',
             icon: Printer,
-            title: language === 'ar' ? 'الطباعة الحرارية' : 'Thermal Printing',
+            title: language === 'ar' ? 'الطباعة الحرارية والبطاقات التعريفية' : 'Thermal Printing, Lanyards & ID Badges',
             description: language === 'ar'
-                ? 'وتكون باستخدام ورق حراري خاص ناقل للحبر حيث تنتقل الطباعة من الورق الناقل الى المادة المطبوعة باستخدام المكابس الحراري المختصة على حسب نوع المادة المطبوعة كالتي شيرت والكابات والكاسات والاقلام.'
-                : 'Using special thermal paper to transfer ink to the material using specialized heat presses, suitable for T-shirts, caps, mugs, and pens.',
-            color: '#1e293b'
+                ? 'طباعة حرارية بالمكابس المتخصصة على التيشيرتات، الكابات، الأكواب، والأقلام، بالإضافة إلى شرائط التعليق (البرشات) وبطاقات الموظفين والمعارض.'
+                : 'Specialized heat-press transfer on T-shirts, polo shirts, caps, mugs, and pens, plus custom branded lanyards and employee/event ID badges.',
+            color: '#ec4899'
+        },
+        {
+            id: 'uv-gifts',
+            icon: Gift,
+            title: language === 'ar' ? 'طباعة UV والهدايا الدعائية' : 'Direct UV Printing & Corporate Gifts',
+            description: language === 'ar'
+                ? 'الطباعة المباشرة بالأشعة فوق البنفسجية (UV) على الأكريليك، الخشب، البامبو، الجلد، المعدن، الزجاج، السيراميك، الفلاشات، والدروع التذكارية.'
+                : 'Direct UV printing on acrylic, wood, bamboo, leather, stone, metal, glass, ceramics, powerbanks, USBs, awards, and VIP gift sets.',
+            color: '#8b5cf6'
         },
         {
             id: 'outdoor',
             icon: Truck,
-            title: language === 'ar' ? 'استكرات السيارات' : 'Vehicle Branding',
+            title: language === 'ar' ? 'طباعة وتركيب استكرات السيارات' : 'Vehicle & Fleet Branding',
             description: language === 'ar'
-                ? 'حيث نقوم بتركيب الهوية الاعلانية للشركات على سيارات النقل والتوزيع مما يساهم بنشر رسالة العميل الاعلانية للجمهور بشكل فعال . يتم التنفيذ بأعلى المعايير والمواد ذات الجودة العالية والتي تتحمل العوامل الجوية المختلفة'
-                : 'We install corporate branding on transport and distribution vehicles, effectively spreading the client\'s advertising message using high-quality materials resistant to weather conditions.',
+                ? 'تركيب الهوية الإعلانية للشركات على سيارات وأساطيل النقل والتوزيع بأعلى المعايير والمواد المقاومة للعوامل الجوية.'
+                : 'Full and partial commercial vehicle and fleet wrapping using weather-resistant vinyl films engineered for the Saudi climate.',
             color: '#E95C27'
         },
         {
             id: 'signage',
             icon: Grid,
-            title: language === 'ar' ? 'اللوحات الخارجية' : 'Outdoor Signage',
+            title: language === 'ar' ? 'اللوحات الخارجية والحروف البارزة (3D)' : 'Outdoor Signage & 3D Letters',
             description: language === 'ar'
-                ? 'نقدم خيارات متنوعة: 1- زنكور مع بلاستيك مضاء 2- استانلس استيل ذهبي/فضي 3- استانلس استيل بإضاءة خلفية 4- حروف بلاستيك كاملة.'
-                : 'We offer various options: 1. Zincor with illuminated plastic 2. Gold/Silver Stainless Steel 3. Backlit Stainless Steel 4. Full plastic letters.',
-            color: '#1e293b'
+                ? '9 خيارات احترافية: زنكور مع أكريليك مضاء، ستانلس ستيل ذهبي/فضي (إضاءة أمامية أو خلفية)، أكريليك مضاء بالكامل، ماجيك، ونيون.'
+                : '9 architectural options: Zincor + lit acrylic, Gold/Silver Stainless Steel (front-lit or backlit), full-lit acrylic, magic acrylic, and neon.',
+            color: '#3b82f6'
         },
         {
             id: 'indoor',
             icon: Layout,
-            title: language === 'ar' ? 'اللوحات الداخلية' : 'Indoor Signage',
+            title: language === 'ar' ? 'اللوحات الداخلية والإرشادية' : 'Indoor Wayfinding & Office Signage',
             description: language === 'ar'
-                ? 'لوحات مكاتب للتعريف أو إرشادية داخل المصانع والشركات. مصنوعة من الأكريليك، الفوركس، الكوركيد أو الألمنيوم الذهبي والفضي.'
-                : 'Office identification or directional signs inside factories/companies. Made of Acrylic, Forex, Corrugated board, or Gold/Silver Aluminum.',
-            color: '#E95C27'
+                ? 'لوحات مكاتب تعريفية وإرشادية داخل المصانع والشركات والمستشفيات مصنوعة من الأكريليك، الفوركس، أو الألمنيوم الذهبي والفضي.'
+                : 'Executive office nameplates and indoor directional signage crafted from Acrylic, Forex, Corrugated board, or brushed Gold/Silver Aluminum.',
+            color: '#10b981'
+        },
+        {
+            id: 'canvas',
+            icon: Frame,
+            title: language === 'ar' ? 'لوحات الكانفز الفنية' : 'Fine-Art Canvas Printing',
+            description: language === 'ar'
+                ? 'طباعة لوحات الكانفز الفاخرة بدقة عالية مع الشد على الإطارات الخشبية المخفية والتركيب للمكاتب والفنادق والمعارض.'
+                : 'Museum-grade canvas printing stretched on solid wooden frames with professional installation for offices, hotels, and galleries.',
+            color: '#f59e0b'
         },
         {
             id: 'displays',
             icon: Monitor,
-            title: language === 'ar' ? 'طاولات العرض' : 'Display Tables',
+            title: language === 'ar' ? 'الرول آب والبوب آب وطاولات العرض' : 'Roll-ups, Pop-ups & Display Tables',
             description: language === 'ar'
-                ? 'طاولات عرض بأشكال مختلفة تستخدم في المولات أو المتاجر لعرض المنتجات بطريقة احترافية وجذابة.'
-                : 'Display tables in various shapes used in malls or stores to showcase products professionally and attractively.',
-            color: '#1e293b'
+                ? 'رول آب (85×200 إلى 200×200 سم)، بوب آب معارض (منحني ومستقيم)، وطاولات عرض وتذوق احترافية للمولات والمتاجر.'
+                : 'Exhibition Roll-ups (85×200 to 200×200 cm), curved/straight Pop-up backdrops, and branded retail display & tasting counters.',
+            color: '#06b6d4'
         },
         {
-            id: 'identity',
-            icon: PenTool,
-            title: language === 'ar' ? 'الهوية البصرية' : 'Visual Identity',
+            id: 'stamps-laser',
+            icon: Stamp,
+            title: language === 'ar' ? 'الأختام التجارية وحفر الليزر' : 'Commercial Stamps & Laser Engraving',
             description: language === 'ar'
-                ? 'تصميم الهويات البصرية والشعارات التجارية بأفكار متميزة وإبداعية على يد نخبة من المصممين المبدعين.'
-                : 'Designing visual identities and commercial logos with distinct and creative ideas by elite designers.',
-            color: '#E95C27'
+                ? 'تنفيذ الأختام التجارية الأوتوماتيكية والإلكترونية، وأعمال الحفر بالليزر بدقة متناهية على الخشب والجلد والأكريليك والهدايا.'
+                : 'Precision automatic and electronic corporate stamps, paired with fine laser engraving on wood, leather, acrylic, and executive plaques.',
+            color: '#ec4899'
         },
         {
             id: 'flags',
             icon: Flag,
-            title: language === 'ar' ? 'الأعلام' : 'Flags',
+            title: language === 'ar' ? 'طباعة الأعلام الإعلانية' : 'Advertising & Feather Flags',
             description: language === 'ar'
-                ? 'الأعلام الإعلانية التي تستخدم امام بوابات المعارض والشركات والمحلات التجارية لجذب الانتباه.'
-                : 'Advertising flags used in front of exhibitions, companies, and retail stores to attract attention.',
-            color: '#1e293b'
+                ? 'أعلام الريشة والدمعة وأعلام السواري والمكاتب التي تستخدم أمام بوابات المعارض والشركات والمحلات التجارية لجذب الانتباه.'
+                : 'Feather, teardrop, pole, and desk flags with heavy-duty bases designed for exhibition entrances, showrooms, and corporate headquarters.',
+            color: '#E95C27'
         }
     ];
 
     return (
         <section id="services" className="section" style={{ position: 'relative' }}>
-            {/* Background curved shape mimicking images */}
             <div style={{
                 position: 'absolute',
                 top: 0,
@@ -137,21 +173,26 @@ const ServiceCatalog = () => {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <h2 style={{ fontSize: '3rem', fontWeight: '900', marginBottom: '1rem', color: 'var(--text-main)' }}>
-                        {language === 'ar' ? 'خدماتنا المميزة' : 'Our Specialized Services'}
+                        {language === 'ar' ? 'خدماتنا المتكاملة (16 قسماً تخصصياً)' : 'Our 16 Specialized Service Divisions'}
                     </h2>
+                    <p style={{ color: 'var(--text-muted)', maxWidth: '720px', margin: '0 auto 1.5rem', fontSize: '1.1rem' }}>
+                        {language === 'ar'
+                            ? 'منظومة متكاملة من خدمات الطباعة الحديثة، اللوحات الإعلانية، الهوية البصرية، والحلول الرقمية في جدة والمدينة المنورة.'
+                            : 'Full-spectrum printing, architectural signage, brand identity, and custom software solutions in Jeddah & Al-Madinah Al-Munawwarah.'}
+                    </p>
                     <div style={{ width: '80px', height: '6px', background: 'var(--color-primary)', margin: '0 auto', borderRadius: '3px' }}></div>
                 </div>
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '2.5rem'
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
+                    gap: '2rem'
                 }}>
-                    {catalogItems.map((item, index) => (
+                    {catalogItems.map((item) => (
                         <div key={item.id} style={{
                             position: 'relative',
                             padding: '2rem',
-                            borderRadius: '30px 0 30px 0', // Asymmetric radius for organic feel
+                            borderRadius: '30px 0 30px 0',
                             backgroundColor: 'var(--bg-card)',
                             boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                             border: '1px solid var(--border-color)',
@@ -160,7 +201,7 @@ const ServiceCatalog = () => {
                             borderLeft: isRTL ? '1px solid var(--border-color)' : `5px solid ${item.color}`
                         }}
                             onMouseEnter={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-10px)';
+                                e.currentTarget.style.transform = 'translateY(-8px)';
                                 e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
                             }}
                             onMouseLeave={(e) => {
@@ -168,10 +209,9 @@ const ServiceCatalog = () => {
                                 e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
                             }}
                         >
-                            {/* Circular Icon Holder */}
                             <div style={{
-                                width: '80px',
-                                height: '80px',
+                                width: '72px',
+                                height: '72px',
                                 borderRadius: '50%',
                                 backgroundColor: item.color,
                                 display: 'flex',
@@ -181,9 +221,7 @@ const ServiceCatalog = () => {
                                 boxShadow: `0 10px 20px ${item.color}40`,
                                 position: 'relative'
                             }}>
-                                <item.icon size={36} color="#fff" />
-
-                                {/* Decor Circle */}
+                                <item.icon size={32} color="#fff" />
                                 <div style={{
                                     position: 'absolute',
                                     top: '-5px',
@@ -192,19 +230,18 @@ const ServiceCatalog = () => {
                                     height: '100%',
                                     border: `2px solid ${item.color}`,
                                     borderRadius: '50%',
-                                    opacity: 0.3
+                                    opacity: 0.35
                                 }} />
                             </div>
 
-                            <h3 style={{ fontSize: '1.5rem', fontWeight: '800', marginBottom: '1rem', color: 'var(--text-main)' }}>
+                            <h3 style={{ fontSize: '1.35rem', fontWeight: '800', marginBottom: '0.85rem', color: 'var(--text-main)' }}>
                                 {item.title}
                             </h3>
 
-                            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '1rem' }}>
+                            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '0.98rem' }}>
                                 {item.description}
                             </p>
 
-                            {/* Organic dots pattern */}
                             <div style={{
                                 position: 'absolute',
                                 top: '20px',
@@ -219,7 +256,7 @@ const ServiceCatalog = () => {
                                         height: '4px',
                                         backgroundColor: item.color,
                                         borderRadius: '50%',
-                                        opacity: 0.3
+                                        opacity: 0.35
                                     }} />
                                 ))}
                             </div>

@@ -84,7 +84,7 @@ const TechPartner = () => {
                     </div>
 
                     <a
-                        href="https://servixerspace.vercel.app/en"
+                        href="https://servixerspace.com/en"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{

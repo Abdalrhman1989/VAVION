@@ -51,8 +51,8 @@ const Hero = () => {
                         <h1 style={{ fontSize: '3.5rem', fontWeight: '900', lineHeight: 1.2, marginBottom: '1.5rem', color: 'var(--text-main)' }}>
                             {language === 'ar' ? t('slogan') : (
                                 <>
-                                    We Design <span className="text-white">Intelligence</span> <br />
-                                    Build <span className="text-gradient">Creativity &</span>
+                                    We Design <span style={{ color: 'var(--text-main)' }}>Intelligence</span> &amp; <br />
+                                    Build <span className="text-gradient">Creativity</span>
                                 </>
                             )}
                         </h1>

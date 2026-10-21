@@ -45,8 +45,8 @@ const Pricing = () => {
                 t('feature6'),
                 t('feature8'), // Marketing Strategy
                 t('feature9'), // Priority Support
-                'Custom Integrations',
-                'Dedicated Manager'
+                language === 'ar' ? 'تكامل مخصص للأنظمة والمنصات' : 'Custom System Integrations',
+                language === 'ar' ? 'مدير حساب مخصص للمشروع' : 'Dedicated Account Manager'
             ],
             color: '#3b82f6'
         }

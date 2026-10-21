@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun, Languages } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Button from './ui/Button';
 import { useTheme } from '../context/ThemeContext';
 
@@ -7,6 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme, language, toggleLanguage, t } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +21,27 @@ const Navbar = () => {
 
   const navLinks = [
     { name: t('home'), href: '#home' },
+    { name: t('about'), href: '#about' },
     { name: t('services'), href: '#services' },
     { name: t('portfolio'), href: '#portfolio' },
+    { name: t('pricingTitle'), href: '#pricing' },
     { name: t('contact'), href: '#contact' },
   ];
+
+  const handleNavClick = (e, hash) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/' + hash);
+    } else {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.hash = hash;
+      }
+    }
+  };
 
   const navbarStyle = {
     padding: isScrolled ? '15px 0' : '25px 0',
@@ -38,45 +58,58 @@ const Navbar = () => {
   return (
     <nav style={navbarStyle}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <a href="#home" onClick={(e) => handleNavClick(e, '#home')} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <img
             src={theme === 'dark' ? "/logo-dark.png" : "/vavion-logo.png"}
-            alt="Vavion Creative"
+            alt="Vavion Creative | فافيون كريتيف"
             style={{ height: '45px', width: 'auto' }}
           />
         </a>
 
         {/* Desktop Nav */}
-        <div className="md:flex" style={{ display: 'none', alignItems: 'center', gap: '2rem' }}>
+        <div className="md:flex" style={{ display: 'none', alignItems: 'center', gap: '1.75rem' }}>
           {navLinks.map((link, index) => (
-            <a key={index} href={link.href} style={{ fontWeight: '500', color: 'var(--text-muted)' }}>
+            <a
+              key={index}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
+              style={{ fontWeight: '600', color: 'var(--text-muted)' }}
+            >
               {link.name}
             </a>
           ))}
 
           {/* Toggles */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '1rem', marginRight: '1rem' }}>
-            <button onClick={toggleTheme} style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginLeft: '0.5rem', marginRight: '0.5rem' }}>
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+              style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}
+            >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={toggleLanguage} style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <button
+              onClick={toggleLanguage}
+              aria-label="Toggle Language"
+              style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px' }}
+            >
               <Languages size={20} />
-              <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>{language.toUpperCase()}</span>
+              <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>{language === 'ar' ? 'EN' : 'AR'}</span>
             </button>
           </div>
 
-          <Button onClick={() => window.location.href = '#contact'}>{t('getStarted')}</Button>
+          <Button onClick={(e) => handleNavClick(e, '#contact')}>{t('getStarted')}</Button>
         </div>
 
         {/* Mobile Toggle */}
         <div className="md:hidden" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <button onClick={toggleTheme} style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
+          <button onClick={toggleTheme} aria-label="Toggle Theme" style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
-          <button onClick={toggleLanguage} style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
-            <span style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{language.toUpperCase()}</span>
+          <button onClick={toggleLanguage} aria-label="Toggle Language" style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
+            <span style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{language === 'ar' ? 'EN' : 'AR'}</span>
           </button>
-          <button onClick={() => setIsOpen(!isOpen)} style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
+          <button onClick={() => setIsOpen(!isOpen)} aria-label="Open Menu" style={{ background: 'none', border: 'none', color: 'var(--text-main)', cursor: 'pointer' }}>
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -101,14 +134,14 @@ const Navbar = () => {
             <a
               key={index}
               href={link.href}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
               style={{ fontSize: '1.1rem', padding: '10px 0', borderBottom: '1px solid var(--border-color)', color: 'var(--text-main)' }}
             >
               {link.name}
             </a>
           ))}
           <div style={{ paddingTop: '1rem' }}>
-            <Button style={{ width: '100%' }} onClick={() => { setIsOpen(false); window.location.href = '#contact'; }}>
+            <Button style={{ width: '100%' }} onClick={(e) => handleNavClick(e, '#contact')}>
               {t('getStarted')}
             </Button>
           </div>

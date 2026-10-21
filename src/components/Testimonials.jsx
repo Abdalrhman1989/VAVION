@@ -7,30 +7,30 @@ const Testimonials = () => {
 
     const testimonials = [
         {
-            name: language === 'ar' ? 'أحمد السعود' : 'Ahmed Al-Saud',
-            role: language === 'ar' ? 'الرئيس التنفيذي، تيك كورب' : 'CEO, TechCorp',
+            name: language === 'ar' ? 'مجموعة كفاني القابضة' : 'Cafani Holding Group',
+            role: language === 'ar' ? 'شريك استراتيجي — قطاع الأعمال والضيافة' : 'Strategic Partner — Corporate & Hospitality',
+            initials: 'CG',
             text: language === 'ar'
-                ? 'فافيون غيرت علامتنا التجارية بالكامل. الفريق محترف ومبدع بشكل لا يصدق.'
-                : 'Vavion completely transformed our brand. The team is incredibly professional and creative.',
-            image: 'https://randomuser.me/api/portraits/men/32.jpg',
+                ? 'فافيون كريتيف شريك موثوق في تنفيذ كافة مطبوعاتنا ولوحاتنا الإعلانية وهويتنا البصرية بدقة عالية والتزام تام بالمواعيد.'
+                : 'Vavion Creative is a trusted partner in executing all our commercial printing, signage, and visual identity with exceptional precision.',
             rating: 5
         },
         {
-            name: language === 'ar' ? 'سارة جونسون' : 'Sarah Johnson',
-            role: language === 'ar' ? 'مديرة التسويق' : 'Marketing Director',
+            name: language === 'ar' ? 'درر الإيمان رويال والرواسي الفندقية' : 'Dorrar Al Eiman Royal & Rawasi Suites',
+            role: language === 'ar' ? 'القطاع الفندقي — المدينة المنورة' : 'Hospitality Sector — Al-Madinah Al-Munawwarah',
+            initials: 'DR',
             text: language === 'ar'
-                ? 'أفضل وكالة تعاملنا معها في السعودية. موصى بها بشدة للحلول الرقمية.'
-                : 'The best agency we have worked with in Saudi Arabia. Highly recommended for digital solutions.',
-            image: 'https://randomuser.me/api/portraits/women/44.jpg',
+                ? 'جودة استثنائية في اللوحات الداخلية والخارجية والمطبوعات الفندقية، وتعاون راقٍ يعكس احترافية الفريق.'
+                : 'Outstanding quality across indoor/outdoor hotel signage and luxury printed collateral. Truly professional execution.',
             rating: 5
         },
         {
-            name: language === 'ar' ? 'فيصل العمري' : 'Faisal Omni',
-            role: language === 'ar' ? 'مؤسس ستارت آب' : 'Founder, StartUp',
+            name: language === 'ar' ? 'شركة الأوتاد الوطنية للإنشاءات' : 'National Autad Construction Co.',
+            role: language === 'ar' ? 'قطاع المقاولات والمشاريع — المملكة العربية السعودية' : 'Construction & Engineering Sector — KSA',
+            initials: 'NA',
             text: language === 'ar'
-                ? 'تسليم سريع، جودة مذهلة، وتواصل ممتاز. يفهمون الإبداع حقاً.'
-                : 'Fast delivery, amazing quality, and great communication. They truly understand creativity.',
-            image: 'https://randomuser.me/api/portraits/men/67.jpg',
+                ? 'سرعة في الإنجاز، جودة طباعة ولوحات مشاريع ممتازة، وتكامل رائع في الحلول الرقمية والتسويقية.'
+                : 'Fast turnaround, durable project signage and fleet branding, and seamless digital and marketing support.',
             rating: 5
         }
     ];
@@ -40,10 +40,10 @@ const Testimonials = () => {
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem' }}>
                     <h2 className="text-gradient" style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-                        {language === 'ar' ? 'ماذا يقول عملاؤنا' : 'What Our Clients Say'}
+                        {language === 'ar' ? 'ماذا يقول شركاء النجاح' : 'What Our Partners Say'}
                     </h2>
                     <p style={{ color: 'var(--text-muted)' }}>
-                        {language === 'ar' ? 'آراء حقيقية من عملاء سعداء' : 'Real reviews from happy clients'}
+                        {language === 'ar' ? 'شهادات نعتز بها من كبرى الشركات والمؤسسات في المملكة' : 'Trusted feedback from leading enterprises across Saudi Arabia'}
                     </p>
                 </div>
 
@@ -76,7 +76,6 @@ const Testimonials = () => {
                             <p style={{
                                 color: 'var(--text-muted)',
                                 marginBottom: '1.5rem',
-                                fontStyle: 'italic',
                                 lineHeight: '1.8',
                                 fontSize: '1.05rem'
                             }}>
@@ -84,17 +83,23 @@ const Testimonials = () => {
                             </p>
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <img
-                                    src={testimonial.image}
-                                    alt={testimonial.name}
+                                <div
                                     style={{
                                         width: '50px',
                                         height: '50px',
                                         borderRadius: '50%',
-                                        objectFit: 'cover',
-                                        border: '2px solid var(--color-primary)'
+                                        background: 'linear-gradient(135deg, var(--color-primary), #ff8a5b)',
+                                        color: '#fff',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontWeight: '800',
+                                        fontSize: '1rem',
+                                        flexShrink: 0
                                     }}
-                                />
+                                >
+                                    {testimonial.initials}
+                                </div>
                                 <div>
                                     <h4 style={{ fontWeight: '700', color: 'var(--text-main)' }}>{testimonial.name}</h4>
                                     <span style={{ fontSize: '0.9rem', color: 'var(--color-primary)' }}>{testimonial.role}</span>
